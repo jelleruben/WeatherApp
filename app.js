@@ -12,7 +12,7 @@ const port          = 3000;
 //-----------------------------------------------------------
 // Connecting to RESTfullBlogApp Database
 //-----------------------------------------------------------
-mongoose.connect('mongodb://localhost:27017/messengerCenter', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/weather', {useNewUrlParser: true, useUnifiedTopology: true});
 
 //-----------------------------------------------------------
 // APP CONFIG
@@ -95,7 +95,7 @@ app.get("/blogs", function(req, res){
 
 
 // NEW ROUTE
-app.get("/blogs/new", function(req, res){
+app.get("/weatherapp/new", function(req, res){
     res.render("new");
 });
 
