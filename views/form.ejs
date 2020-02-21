@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container">
+    <div class="ui huge header">Nieuw bericht</div>
+    <a class="ui blue basic button" href="/messengers/new" class="item">Nieuwe Post</a>
+    <a class="ui blue basic button" href="/messengers/tumb" class="item"><i class="left floated vertical table icon"></i></a>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% messengers.forEach(function(messenger){ %>
+                <div class="item">
+                    <div class="image">
+                        <img src="http://<%= messenger.image %>">
+                    </div>
+                        <div class="content">
+                            <a class="header" href="/messengers/<%= messenger._id %>"><%=messenger.title%></a>
+                            <div class="meta">
+                                <span><%= messenger.created.toDateString() %></span>
+                             </div>
+                                <div class="description">
+                                    <p><%- messengers=bericht.substring(0, 100) %>...</p>
+                                </div>
+                                <div class="extra">
+                                    <a class="ui blue basic button" href="/messengers/<%= messenger._id %>">
+                                        Lees Meer
+                                     <i class="right chevron icon"></i>
+                                    </a>
+                                </div>
+                        </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer") %>

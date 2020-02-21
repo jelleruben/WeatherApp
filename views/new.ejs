@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+<div class="ui main text container segment">
+    <div class="ui huge header">Nieuw bericht</div>
+    <form class="ui form" action="/messengers" method="POST">
+        <div class="field">
+            <label>Naam</label>
+            <input type="text" name="messenger[naam]" placeholder="Naam"> 
+        </div>
+
+        <div class="field">
+            <label>Emailadress</label>
+            <input type="text" name="messenger[email]" placeholder="Emailadres"> 
+        </div>
+        <div class="field">
+            <label>Bericht</label>
+                <textarea name="messenger[bericht]"></textarea>
+        </div>
+        <a class="ui blue basic button" href="#">Terug</a>
+        <input class="ui violet basic button right floated" type="submit">
+    </form>
+</div>
+<%- include("partials/footer") %>

@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+
+<div class="content">
+<div class="input">
+  <input type="text" placeholder="Plaats..." id="input_text" onkeypress="return (event.charCode > 64 && 
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" autofocus>
+  <input type="submit" value="Zoeken" id="submit">
+  <p id="message" style="position: relative"></p>
+</div>
+
+<div class="container">
+<div class="card">
+  <br>
+  <p id="name"></p>
+  <p id="image"></p>
+  <p id="icong"></p>
+  <p id="temp"></p>
+  <p id="wind"></p>
+  <p id="windr"></p>
+  <p id="desc"></p>
+  <p id="sun"></p>
+</div>
+</div>
+<%- include("partials/footer") %>
