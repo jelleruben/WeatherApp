@@ -1,5 +1,3 @@
-//Version 0.1 refactor the code.
-
 // Selectie van de onderdelen
 var input      = document.querySelector('#input_text');
 var main       = document.querySelector('#name');
