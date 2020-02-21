@@ -19,7 +19,7 @@ var sun        = document.querySelector('#sun')
 // Instellingen voor de fetch functie
 var units      = 'metric';
 var lang       = 'nl';
-var APIKey     = '50a7aa80fa492fa92e874d23ad061374';
+var APIKey     = 'API KEY';
 
 
 // druk op Enter voor zoekfunctie
