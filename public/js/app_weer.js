@@ -7,7 +7,6 @@ var icon       = document.querySelector('#icong');
 var image      = document.querySelector('#image');
 var temp       = document.querySelector('#temp');
 var desc       = document.querySelector('#desc');
-var clouds     = document.querySelector('#clouds');
 var wind       = document.querySelector('#wind');
 var windr      = document.querySelector('#windr');
 var button     = document.querySelector('#submit');
@@ -15,12 +14,10 @@ var message    = document.querySelector('#message');
 var input      = document.getElementById("input_text");
 var sun        = document.querySelector('#sun')
 
-
 // Instellingen voor de fetch functie
 var units      = 'metric';
 var lang       = 'nl';
 var APIKey     = '50a7aa80fa492fa92e874d23ad061374';
-
 
 // druk op Enter voor zoekfunctie
 input.addEventListener("keyup", function(event) {
@@ -29,7 +26,6 @@ input.addEventListener("keyup", function(event) {
     document.getElementById("submit").click();
   }
 });
-
 
 //druk op zoeken voor zoekfunctie
 button.addEventListener('click', function(name){
@@ -49,7 +45,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +input.value+ "&units
   var sunSet        = data['sys']['sunset'];
   var sunRise       = data['sys']['sunrise'];
 
-
   var timeRise = new Date (sunRise*1000);
   var Risehours = timeRise.getHours();
   var Riseminutes = "0" + timeRise.getMinutes();
@@ -63,7 +58,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +input.value+ "&units
   //Windrichting
   var windrichting	 = ["Noord", "Noord Noord Oost", "Noord Oost", "Oost Noord Oost", "Oost", "Oost Zuid Oost", "Zuid Oost", "Zuid", "Zuid Zuid West", "Zuid West", "West Zuid West", "West", "West Noord West", "Noord West", "Noord Noord West", "Noord"];
   
-
   // Het invullen van de pagina
   main.innerHTML  = nameValue;
   icon.innerHTML  = iconValuecode;
@@ -71,9 +65,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +input.value+ "&units
   wind.innerHTML  = "<b>Windsnelheid:</b> "+windValue+" m/s <br>" + "<b>Windrichting:</b> " +windrichting[(windrValue / 22.5).toFixed(0) - 1];
   sun.innerHTML   = "Zonsopkomst: " + RiseTime + "<br> Zonsondergang: " + SetTime; 
   desc.innerHTML  = "Weeromschrijving:<br>"+descValue;
-
- 
-
   message.innerHTML = "";
   input.value       = "";
 })
