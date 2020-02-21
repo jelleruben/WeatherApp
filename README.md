@@ -1,2 +1,2 @@
 # Weather App
-Een weer applicatie gemaakt samen met Matthijs.
+Een weer applicatie gemaakt samen met Matthijs van Nistelrooij.
