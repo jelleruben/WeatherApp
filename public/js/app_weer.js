@@ -1,4 +1,4 @@
-// Selectie van de onderdelen
+    // Selectie van de onderdelen
 var input      = document.querySelector('#input_text');
 var main       = document.querySelector('#name');
 var icon       = document.querySelector('#icong');

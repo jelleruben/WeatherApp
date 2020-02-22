@@ -95,12 +95,9 @@ app.get("/blogs", function(req, res){
 
 
 // NEW ROUTE
-app.get("/weatherapp/new", function(req, res){
+app.get("/new", function(req, res){
     res.render("new");
 });
-
-// NEW ROUTE
-
 
 // CREATE ROUTE
 app.post("/blogs", function(req, res){
@@ -115,6 +112,29 @@ app.post("/blogs", function(req, res){
         }
     });
 });
+
+// // CREATE ROUTE
+// app.post("/messenger", function(req, res){
+//     //create blog
+//    req.body.messsenger.body = req.sanitize(req.body.messenger.body)
+//     Messenger.create(req.body.messenger, function(err, newMessenger){
+//         if(err){
+//             res.render("new");
+//         } else {
+//                 //redirect
+//             res.redirect("/bedankt");
+//         }
+//     });
+// });
+
+
+
+
+
+
+
+
+
 
 //SHOW ROUTE
 app.get("/blogs/:id", function(req, res){
