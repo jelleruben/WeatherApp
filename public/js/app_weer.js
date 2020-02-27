@@ -15,7 +15,7 @@ var sun        = document.querySelector('#sun')
 // Instellingen voor de fetch functie
 var units      = 'metric';
 var lang       = 'nl';
-var APIKey     = '89d56f87a8e4e086a9ff36023bea0094';
+var APIKey     = 'API KEY';
 
 // druk op Enter voor zoekfunctie
 input.addEventListener("keyup", function(event) {
