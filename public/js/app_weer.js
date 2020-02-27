@@ -1,4 +1,4 @@
-    // Selectie van de onderdelen
+      // Selectie van de onderdelen
 var input      = document.querySelector('#input_text');
 var main       = document.querySelector('#name');
 var icon       = document.querySelector('#icong');
@@ -56,9 +56,17 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +input.value+ "&units
   //Windrichting
   var windrichting	 = ["Noord", "Noord Noord Oost", "Noord Oost", "Oost Noord Oost", "Oost", "Oost Zuid Oost", "Zuid Oost", "Zuid", "Zuid Zuid West", "Zuid West", "West Zuid West", "West", "West Noord West", "Noord West", "Noord Noord West", "Noord"];
   
+  var iconurl = "http://openweathermap.org/img/w/" + iconValuecode + ".png";
+
+
+
   // Het invullen van de pagina
-  main.innerHTML  = nameValue;
-  icon.innerHTML  = iconValuecode;
+    main.innerHTML  = nameValue;
+  // icon.innerHTML  = iconValuecode;
+  //icon.innerHTML  =  iconurl
+
+  //icon.innerHTML= '<img src="' + iconurl +'" height="50" width="50">'
+  icon.innerHTML= '<img src="' + iconurl +'">'
   temp.innerHTML  = tempValue+"&deg;C";
   wind.innerHTML  = "<b>Windsnelheid:</b> "+windValue+" m/s <br>" + "<b>Windrichting:</b> " +windrichting[(windrValue / 22.5).toFixed(0) - 1];
   sun.innerHTML   = "Zonsopkomst: " + RiseTime + "<br> Zonsondergang: " + SetTime; 

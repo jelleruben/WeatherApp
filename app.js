@@ -26,7 +26,7 @@ app.use(methodOverride("_method"));
 //-----------------------------------------------------------
 //  MONGOOSE/MODEL CONFIG
 //-----------------------------------------------------------
-var messengerSchema = new mongoose.Schema({
+var blogSchema = new mongoose.Schema({
     naam: String,
     email: String,
     image: String,
@@ -36,7 +36,7 @@ var messengerSchema = new mongoose.Schema({
     created:  {type: Date, default: Date.now}
 
 });
-var Blog = mongoose.model("Blog", messengerSchema);
+var Blog = mongoose.model("Blog", blogSchema);
 
 //-----------------------------------------------------------
 //  ROUTES
@@ -81,9 +81,14 @@ app.get("/form", function(req, res){
     res.render("form.ejs");
 });
 
+app.get("/new", function(req, res){
+    res.render("new.ejs");
+});
+
+
 
 // INDEX ROUTE -> List
-app.get("/blogs", function(req, res){
+app.get("/weatherapp", function(req, res){
     Blog.find({}, function(err, blogs){
         if(err){
             console.log("ERROR!");
@@ -95,12 +100,12 @@ app.get("/blogs", function(req, res){
 
 
 // NEW ROUTE
-app.get("/new", function(req, res){
+app.get("/weatherapp/new", function(req, res){
     res.render("new");
 });
 
 // CREATE ROUTE
-app.post("/blogs", function(req, res){
+app.post("/weatherapp", function(req, res){
     //create blog
    req.body.blog.body = req.sanitize(req.body.blog.body)
     Blog.create(req.body.blog, function(err, newBlog){
@@ -113,8 +118,8 @@ app.post("/blogs", function(req, res){
     });
 });
 
-// // CREATE ROUTE
-// app.post("/messenger", function(req, res){
+// CREATE ROUTE
+// app.post("/weatherapp", function(req, res){
 //     //create blog
 //    req.body.messsenger.body = req.sanitize(req.body.messenger.body)
 //     Messenger.create(req.body.messenger, function(err, newMessenger){
