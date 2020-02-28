@@ -1,4 +1,4 @@
-      // Selectie van de onderdelen
+ // Selectie van de onderdelen
 var input      = document.querySelector('#input_text');
 var main       = document.querySelector('#name');
 var icon       = document.querySelector('#icong');
@@ -12,11 +12,6 @@ var message    = document.querySelector('#message');
 var input      = document.getElementById("input_text");
 var sun        = document.querySelector('#sun')
 
-// Instellingen voor de fetch functie
-var units      = 'metric';
-var lang       = 'nl';
-var APIKey     = '89d56f87a8e4e086a9ff36023bea0094';
-
 // druk op Enter voor zoekfunctie
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
@@ -24,6 +19,11 @@ input.addEventListener("keyup", function(event) {
     document.getElementById("submit").click();
   }
 });
+
+// Instellingen voor de fetch functie
+var units      = 'metric';
+var lang       = 'nl';
+var APIKey     = '[API KEY]';
 
 //druk op zoeken voor zoekfunctie
 button.addEventListener('click', function(name){
@@ -44,29 +44,30 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +input.value+ "&units
   var sunSet        = data['sys']['sunset'];
   var sunRise       = data['sys']['sunrise'];
 
-  var timeRise = new Date (sunRise*1000);
-  var Risehours = timeRise.getHours();
-  var Riseminutes = "0" + timeRise.getMinutes();
-  var RiseTime = Risehours + ':' + Riseminutes.substr(-2);
+  //Het omzetten naar leesbare tijd
+  var timeRise      = new Date (sunRise*1000);
+  var Risehours     = timeRise.getHours();
+  var Riseminutes   = "0" + timeRise.getMinutes();
+  var RiseTime      = Risehours + ':' + Riseminutes.substr(-2);
 
-  var timeSet  = new Date (sunSet*1000);
-  var Sethours = timeSet.getHours();
-  var Setminutes = "0" + timeSet.getMinutes();
-  var SetTime = Sethours + ':' + Setminutes.substr(-2);
+  var timeSet       = new Date (sunSet*1000);
+  var Sethours      = timeSet.getHours();
+  var Setminutes    = "0" + timeSet.getMinutes();
+  var SetTime       = Sethours + ':' + Setminutes.substr(-2);
 
   //Windrichting
-  var windrichting	 = ["Noord", "Noord Noord Oost", "Noord Oost", "Oost Noord Oost", "Oost", "Oost Zuid Oost", "Zuid Oost", "Zuid", "Zuid Zuid West", "Zuid West", "West Zuid West", "West", "West Noord West", "Noord West", "Noord Noord West", "Noord"];
+  var windrichting	= ["Noord", "Noord Noord Oost", "Noord Oost", "Oost Noord Oost", "Oost", "Oost Zuid Oost", "Zuid Oost", "Zuid", "Zuid Zuid West", "Zuid West", "West Zuid West", "West", "West Noord West", "Noord West", "Noord Noord West", "Noord"];
   
   // Afbeelding laten tonen
   var iconurl = "http://openweathermap.org/img/w/" + iconValuecode + ".png";
 
   // Het invullen van de pagina
-    main.innerHTML  = nameValue;
-    icon.innerHTML= '<img src="' + iconurl +'">'
-    temp.innerHTML  = tempValue+"&deg;C";
-    wind.innerHTML  = "<b>Windsnelheid:</b> "+windValue+" m/s <br>" + "<b>Windrichting:</b> " +windrichting[(windrValue / 22.5).toFixed(0) - 1];
-    sun.innerHTML   = "Zonsopkomst: " + RiseTime + "<br> Zonsondergang: " + SetTime; 
-    desc.innerHTML  = "Weeromschrijving:<br>"+descValue;
+    main.innerHTML    = nameValue;
+    icon.innerHTML    = '<img src="' + iconurl +'">'
+    temp.innerHTML    = tempValue+"&deg;C";
+    wind.innerHTML    = "<b>Windsnelheid:</b> "+windValue+" m/s <br>" + "<b>Windrichting:</b> " +windrichting[(windrValue / 22.5).toFixed(0) - 1];
+    sun.innerHTML     = "Zonsopkomst: " + RiseTime + "<br> Zonsondergang: " + SetTime; 
+    desc.innerHTML    = "Weeromschrijving:<br>"+descValue;
     message.innerHTML = "";
     input.value       = "";
 })
